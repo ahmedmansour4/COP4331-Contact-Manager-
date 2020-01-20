@@ -1,0 +1,102 @@
+
+body {
+	background-color: #494E6B;
+}
+
+/*height, vh is % of view height, 30 + 20 + 50 = 100% height taken up*/
+.header
+{
+	height: 20vh;
+}
+
+.footer
+{
+	height: 20vh;
+}
+
+.column
+{
+	float: left;
+	width: 25%;
+	height: 50vh;
+}
+
+/*causing offset!*/
+.break
+{
+	height: 20%;
+}
+
+#logTitle
+{
+		font-family: "Trebuchet MS";
+		text-align: center;
+}
+
+#login
+{
+	background-color: #FFFFFF;
+	text-align: center;
+	height: 50vh;
+	border-style: solid;
+	border-width: 5%;
+}
+
+/*rounded corners on text box / input bar*/
+#loginName, #loginPassword
+{
+	border-radius: 25px;
+	text-align: center;
+	margin: 2%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+#loginButton
+{
+	font-family: "Trebuchet MS";
+	text-decoration: none;
+	text-align: center;
+	border-radius: 5px;
+	background-color: #6D7993;
+	color: #DDDDDD;
+	margin-top: 2%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 8%;
+	padding-right: 8%;
+}
+
+#signup
+{
+	font-family: "Trebuchet MS";
+	height: 50vh;
+	text-align:center;
+	background-image: url('../images/LogIn.png');
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border-style: solid;
+	border-width: 5%;
+}
+
+#signupText
+{
+	text-align: center;
+	color: #DDDDDD;
+}
+/*
+#loginDiv {
+	background-color: #F1F1F1;
+	width: 50%;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;
+	text-align: center;
+}
+
+#loginButton:hover {
+  background-color: #ddd;
+  color: black;
+}
+*/
