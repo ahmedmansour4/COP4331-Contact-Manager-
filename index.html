@@ -5,9 +5,31 @@
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
-		<div class="header"></div>
-		<div class="column"></div>
-		<div class="column">
+		<header class="header">
+			<div class="column">
+				<div id="placementTop"></div>
+				<div id="placementBottom"></div>
+				<div id="placementBottom" class="rectangleA"></div>
+			</div>
+			<div class="column">
+				<div id="placementTop"></div>
+				<div id="placementBottom"></div>
+				<!--TODO: fix so it scales when page size changes -->
+				<!--
+				<div id="placementBottom" class="rectangleA">
+							<h1>CONTACT MANAGER</h1>
+					</div>
+				-->
+				<h1 id="placementBottom" class="rectangleA">CONTACT MANAGER</h1>
+			</div>
+			<div class="column">
+				<div id="placementTop"></div>
+				<div id="placementBottom"></div>
+				<div id="placementBottom" class="rectangleB"></div>
+			</div>
+		</header>
+		<div class="columnLogIn"></div>
+		<div class="columnLogIn">
 			<div id="login">
 				<div class="break"></div>
 				<h1 id="logTitle">Log In</h1>
@@ -19,14 +41,14 @@
 				</div>
 			</div>
 		</div>
-		<div class="column">
+		<div class="columnLogIn">
 			<div id="signup">
 					<div class="break"></div>
 					<h1 id="signupText">Don't have an account?</h1>
 					<a id="loginButton" href="signup.html">Sign Up</a>
 			</div>
 		</div>
-		<div class="column"></div>
+		<div class="columnLogIn"></div>
 
 
 	</body>
