@@ -25,7 +25,7 @@
         }
         else
         {
-            $sql = "INSERT INTO Users (userName, password, FirstName, LastName, email) VALUES ('$userName', '$password', '$firstName', '$lastName', '$email')";
+            $sql = "INSERT INTO Users (userName, password, firstName, lastName, email) VALUES ('$userName', '$password', '$firstName', '$lastName', '$email')";
             
             if ( $result = $conn->query($sql) != TRUE)
             {
