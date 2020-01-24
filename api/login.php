@@ -32,7 +32,7 @@
         }
         else
         {
-            returnWithInfo("No Records Found");
+            returnWithError("No Records Found");
         }
         
         $conn->close();
@@ -51,7 +51,7 @@
     
     function returnWithInfo($firstName, $lastName, $UID)
     {
-        $retValue = '{"id":' . $UID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+        $retValue = '{"UID":' . $UID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
         sendResultInfoAsJson( $retValue );
     }
     
