@@ -3,9 +3,9 @@
     $inData = getRequestInfo();
     
     $userName = $inData["userName"];
-    $password = $inData["password"];
+    $password = md5($inData["password"]);
     
-    $id = 0;
+    $UID = 0;
     $firstName = "";
     $lastname = "";
     
@@ -17,7 +17,7 @@
     }
     else
     {
-        $sql = "SELECT id, firstName, lastName FROM Users WHERE userName = '$userName' AND password = '$password'";
+        $sql = "SELECT UID, firstName, lastName FROM Users WHERE userName = '$userName' AND password = '$password'";
         
         $result = $conn->query($sql);
         
@@ -26,9 +26,9 @@
             $row = $result->fetch_assoc();
             $firstName = $row["firstName"];
             $lastName = $row["lastName"];
-            $id = $row["id"];
+            $UID = $row["UID"];
             
-            returnWithInfo($firstName, $lastName, $id);
+            returnWithInfo($firstName, $lastName, $UID);
         }
         else
         {
@@ -49,15 +49,15 @@
         echo $obj;
     }
     
-    function returnWithInfo($firstName, $lastName, $id)
+    function returnWithInfo($firstName, $lastName, $UID)
     {
-        $retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+        $retValue = '{"id":' . $UID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
         sendResultInfoAsJson( $retValue );
     }
     
     function returnWithError($err)
     {
-        $retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+        $retValue = '{"UID":0,"firstName":"","lastName":"","error":"' . $err . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>
