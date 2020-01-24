@@ -2,8 +2,29 @@
 <html>
 	<head>
 		<title>Sign Up</title>
-		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/signupstyle.css">
 	</head>
 	<body>
-		<h1>Sign Up Page</h1>
-		</body>
+		<header class="header"></header>
+		<div class="columnSignIn"></div>
+		<div class="columnSignInMid" id="signupPage">
+				<div id="topSignUp">
+					<div id="topInnerSignUp"></div>
+					<h1>CREATE NEW ACCOUNT</h1>
+				</div>
+				<div id="innerSignInB"></div>
+				<div id="innerSignInA">
+						<div id="topInnerSignUp"></div>
+						<div id="center">
+							<input type="text" class="signUpInfo" placeholder="Email" /><br />
+							<input type="text" class="signUpInfo" placeholder="Username" /><br />
+							<input type="password" class="signUpInfo" placeholder="Password"/><br />
+							<button type="button" id="signUpButton" class="buttons" onclick="doLSignUp();"> Sign Up </button>
+							<span id="signupResult"></span>
+						</div>
+				</div>
+		</div>
+
+
+	</body>
+</html>

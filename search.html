@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Search</title>
+		<link rel="stylesheet" type="text/css" href="css/search.css">
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column">
+				<div id="userInfo">
+					<h3 id="welcomeText">Currently logged in as</h3>
+					<div id="space"></div>
+					<button type="button" id="logOut" class="buttons" onclick="doLogOut();"> LOG OUT </button>
+				</div>
+			</div>
+		</div>
+		<div class="center">
+			<div class="centerColumn side"></div>
+			<div class="centerColumn middle">
+				<div class="gridcontainer">
+					<div class="row1">
+							<h1 id="title">WELCOME</h1>
+					</div>
+					<div class="row2">
+						<input type="text"/ id="searchBox">
+						<button type="button" id="searchButton" class="buttons" onclick="doSearch();"> SEARCH </button>
+					</div>
+					<button type="button" id="searchButton" class="buttons" onclick="addContact();">ADD NEW CONTACT</button>
+
+				</div>
+			</div>
+			<div class="centerColumn side"></div>
+		</div>
+		<footer class="footer"></footer>
+	</body>
+</html>
