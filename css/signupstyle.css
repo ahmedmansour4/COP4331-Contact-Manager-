@@ -27,15 +27,14 @@ body {
 {
 	float: left;
 	width: 45%;
-	height: 60vh;
-
+	height: 70vh;
 }
 
 #innerSignInA
 {
 	text-align: center;
 	width:70%;
-	height: 65%;
+	height: 70%;
 	float:left;
 	border-style: solid;
 	border-width: 2px;
@@ -82,7 +81,7 @@ body {
 
 #topInnerSignUp
 {
-	height: 15%;
+	height: 10%;
 }
 
 #center
