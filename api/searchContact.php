@@ -3,12 +3,9 @@
     $inData = getRequestInfo();
     
     $UID = $inData["UID"];
-    $firstName = $inData["firstName"];
-    $lastName = $inData["lastName"];
-    $phoneNumber = $inData["phoneNumber"];
+    $search = $inData["search"];
     
     $searchResults = "";
-    $searchCount = 0;
     
     $conn = new mysqli("sql9.freemysqlhosting.net", "sql9319845", "l64JHb7YZj", "sql9319845", "3306");
     
@@ -18,9 +15,33 @@
     }
     else
     {
-        $sql = "SELECT UID, firstName, lastName, phoneNumber FROM Contacts WHERE firstName LIKE '%" . $firstName . "%' OR lastName LIKE '%" . $lastName . "%' OR phoneNumber LIKE '%" . $phoneNumber . "%' AND UID = '$UID'";
+        $sql = "SELECT * FROM Contacts WHERE (CONCAT_WS(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%' OR concat(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%') AND UID = '$UID'";
         
         $result = $conn->query($sql);
+        
+        $searchResults = getResults($result);
+        
+        if ($searchResults == "")
+        {
+            returnWithError("No Records Found");
+        }
+        else
+        {
+            returnWithInfo($searchResults);
+        }
+        
+        $conn->close();
+    }
+    
+    function getRequestInfo()
+    {
+        return json_decode(file_get_contents('php://input'), true);
+    }
+    
+    function getResults($result)
+    {
+        $searchResults = "";
+        $searchCount = 0;
         
         if ($result->num_rows > 0)
         {
@@ -32,39 +53,38 @@
                 }
                 
                 $searchCount++;
-                $searchResults .= '"' . $row["firstName"] . ' ' . $row["lastName"] . ' ' . $row["phoneNumber"] . '"';
+                $searchResults .= '"' . $row["firstName"] . ' ' . $row["lastName"] . ' ' . dashedNum($row["phoneNumber"]) . ' ' . $row["email"] . ' ' . $row["notes"] . '"';
+                
             }
         }
-        else
-        {
-            returnWithError("No Records Found");
-        }
         
-        $conn->close();
+        return $searchResults;
     }
     
-    returnWithInfo($searchResults);
-    
-    function getRequestInfo()
+    function dashedNum($phoneNumber)
     {
-        return json_decode(file_get_contents('php://input'), true);
+        $phoneNumber = substr($phoneNumber, 0, 3) .'-'.
+        substr($phoneNumber, 3, 3) .'-'.
+        substr($phoneNumber, 6);
+        
+        return $phoneNumber;
     }
     
-    function sendResultInfoAsJson( $obj )
+    function sendResultInfoAsJson($obj)
     {
         header('Content-type: application/json');
         echo $obj;
     }
     
-    function returnWithInfo( $searchResults )
+    function returnWithInfo($searchResults)
     {
         $retValue = '{"results":[' . $searchResults . '],"error":""}';
-        sendResultInfoAsJson( $retValue );
+        sendResultInfoAsJson($retValue);
     }
     
     function returnWithError($err)
     {
         $retValue = '{"error":"' . $err . '"}';
-        sendResultInfoAsJson( $retValue );
+        sendResultInfoAsJson($retValue);
     }
 ?>
