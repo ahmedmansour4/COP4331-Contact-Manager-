@@ -3,13 +3,13 @@
     $inData = getRequestInfo();
     
     $userName = $inData["userName"];
-    $password = md5($inData["password"]);
+    $password = $inData["password"];
     
     $UID = 0;
     $firstName = "";
     $lastname = "";
     
-    $conn = new mysqli("sql9.freemysqlhosting.net", "sql9319845", "l64JHb7YZj", "sql9319845", "3306");
+    $conn = new mysqli("localhost", "root", "", "ManagerDB");
     
     if ($conn->connect_error)
     {
@@ -17,7 +17,7 @@
     }
     else
     {
-        $sql = "SELECT UID, firstName, lastName FROM Users WHERE userName = '$userName' AND password = '$password'";
+        $sql = "SELECT UID, userName, passWord FROM Users WHERE userName = '$userName' AND passWord = '$password'";
         
         $result = $conn->query($sql);
         
