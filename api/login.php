@@ -17,7 +17,7 @@
     }
     else
     {
-        $sql = "SELECT UID, firstName, lastName FROM Users WHERE userName='" . $userName . "' AND passWord='" . $password . "'";
+        $sql = "SELECT UID, firstName, lastName FROM Users WHERE userName='" . $userName . "' AND passWord='" . $passWord . "'";
         
         $result = $conn->query($sql);
         
