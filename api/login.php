@@ -17,16 +17,16 @@
     }
     else
     {
-        $sql = "SELECT UID, firstName, passWord FROM Users WHERE userName='$userName' AND passWord='$password'";
+        $sql = "SELECT UID, firstName, lastName FROM Users WHERE userName='" . $userName . "' AND passWord='" . $password . "'";
         
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
-            $firstName = $row['firstName'];
-            $lastName = $row['astName'];
-            $UID = $row['ID'];
+            $firstName = $row["firstName"];
+            $lastName = $row["lastName"];
+            $UID = $row["UID"];
             
             returnWithInfo($firstName, $lastName, $UID);
         }
@@ -40,7 +40,7 @@
   
     function getRequestInfo()
     {
-        return json_decode(file_get_contents("hp://input"), true);
+        return json_decode(file_get_contents("php://input"), true);
     }
     
     function sendResultInfoAsJson($obj)
@@ -51,13 +51,13 @@
     
     function returnWithInfo($firstName, $lastName, $UID)
     {
-        $retValue = '{"UID":' . $UID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '"}';
+        $retValue = '{ "UID" : "' . $UID . '" , "firstName" : "' . $firstName . '" , "lastName" : "' . $lastName . '"}';
         sendResultInfoAsJson( $retValue );
     }
     
     function returnWithError($err)
     {
-        $retValue = '{"UID":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+        $retValue = '{ "UID" : 0 , "firstName" : "", "lastName" : "" , "error" : "' . $err . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>
