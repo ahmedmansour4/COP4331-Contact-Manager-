@@ -16,7 +16,7 @@ function doLogin()
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	var jsonPayload = '{"userName" : "' + login + '", "passWord" : "' + passWord + '"}';
+	var jsonPayload = '{"userName" : "' + login + '", "passWord" : "' + password + '"}';
 	var url = urlBase + '/api/login.' + extension;
 
 	var xhr = new XMLHttpRequest();
