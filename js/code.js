@@ -18,7 +18,10 @@ function doLogin()
 
 	var jsonPayload = '{"userName" : "' + login + '", "passWord" : "' + password + '"}';
 	var url = urlBase + '/api/login.' + extension;
-
+	// debugging
+	console.log(url);
+	console.log(jsonPayload);
+	// end
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
@@ -29,7 +32,7 @@ function doLogin()
 		var jsonObject = JSON.parse( xhr.responseText );
 		
 		userId = jsonObject.UID;
-		
+		console.log(userId);
 		if( userId < 1 )
 		{
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
@@ -41,7 +44,7 @@ function doLogin()
 
 		saveCookie();
 	
-		window.location.href = "color.html";
+		window.location.href = "search.html";
 	}
 	catch(err)
 	{
