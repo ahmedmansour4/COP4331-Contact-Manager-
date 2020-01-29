@@ -3,13 +3,13 @@
     $inData = getRequestInfo();
     
     $userName = $inData["userName"];
-    $password = $inData["password"];
+    $passWord = $inData["passWord"];
     
     $UID = 0;
     $firstName = "";
     $lastname = "";
     
-    $conn = new mysqli("localhost", "root", "", "ManagerDB");
+    $conn = new mysqli("127.0.0.1", "root", "", "ManagerDB");
     
     if ($conn->connect_error)
     {
@@ -17,16 +17,16 @@
     }
     else
     {
-        $sql = "SELECT UID, userName, passWord FROM Users WHERE userName = '$userName' AND passWord = '$password'";
+        $sql = "SELECT UID, firstName, passWord FROM Users WHERE userName='$userName' AND passWord='$password'";
         
         $result = $conn->query($sql);
         
         if ($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
-            $firstName = $row["firstName"];
-            $lastName = $row["lastName"];
-            $UID = $row["UID"];
+            $firstName = $row['firstName'];
+            $lastName = $row['astName'];
+            $UID = $row['ID'];
             
             returnWithInfo($firstName, $lastName, $UID);
         }
@@ -40,7 +40,7 @@
   
     function getRequestInfo()
     {
-        return json_decode(file_get_contents('php://input'), true);
+        return json_decode(file_get_contents("hp://input"), true);
     }
     
     function sendResultInfoAsJson($obj)
@@ -51,7 +51,7 @@
     
     function returnWithInfo($firstName, $lastName, $UID)
     {
-        $retValue = '{"UID":' . $UID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+        $retValue = '{"UID":' . $UID . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '"}';
         sendResultInfoAsJson( $retValue );
     }
     
