@@ -15,7 +15,7 @@
     }
     else
     {
-        $sql = "SELECT * FROM Contacts WHERE (CONCAT_WS(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%' OR concat(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%') AND UID = '$UID'";
+        $sql = "SELECT * FROM Contacts WHERE ((CONCAT_WS(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%' OR concat(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%')) AND UID = '$UID'";
         
         $result = $conn->query($sql);
         
