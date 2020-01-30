@@ -8,7 +8,7 @@
     $lastName = $inData["lastName"];
     $email = $inData["email"];
     
-    $conn = new mysqli("127.0.0.1", "root", "", "Users");
+    $conn = new mysqli("127.0.0.1", "root", "", "ManagerDB");
     
     if ( $conn->connect_error )
     {
