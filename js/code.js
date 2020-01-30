@@ -1,4 +1,4 @@
-var subdomain= "alex";
+var subdomain= "temp";
 
 var urlBase = 'http://' + subdomain + '.aaaaaie.us';
 var extension = 'php';
