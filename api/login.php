@@ -7,7 +7,7 @@
     
     $UID = 0;
     $firstName = "";
-    $lastname = "";
+    $lastName = "";
     
     $conn = new mysqli("127.0.0.1", "root", "", "ManagerDB");
     
