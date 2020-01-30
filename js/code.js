@@ -1,10 +1,23 @@
-var urlBase = 'http://temp.aaaaaie.us';
-var extension = 'php';
+var subdomain= "alex";
 
+var urlBase = 'http://' + subdomain + '.aaaaaie.us';
+var extension = 'php';
+console.log(urlBase);
 var userId = 0;
 var firstName = "";
 var lastName = "";
 
+
+
+function doSignUp()
+{
+	var  email = document.getElementById("email").innerHTMl;
+	var  userName = document.getElementById("userName").innerHTMl;
+	var  passWord = document.getElementById("passWord").innerHTMl;
+	var  firstName = document.getElementById("firstName").innerHTMl;
+	var  lastName = document.getElementById("lastName").innerHTMl;
+	console.log(email + " " + userName + " " + passWord + " " + firstName + " " + lastName);
+}
 function doLogin()
 {
 	userId = 0;
@@ -43,8 +56,9 @@ function doLogin()
 		lastName = jsonObject.lastName;
 
 		saveCookie();
-	
-		window.location.href = "search.html";
+
+		console.log("search.html?firstName=" + firstName +"&lastName=" + lastName);
+		window.location.href= "search.html?firstName=" +firstName + "&lastName=" + lastName;
 	}
 	catch(err)
 	{

@@ -16,6 +16,7 @@
 				<div id="innerSignInA">
 						<div id="topInnerSignUp"></div>
 						<div id="center">
+							<form method=
 							<input id="email" type="text" class="signUpInfo" placeholder="Email"/>hi<br />
 							<input id="userName" type="text" class="signUpInfo" placeholder="Username"/><br />
 							<input id="passWord" type="text" class="signUpInfo" placeholder="Password"/><br />
