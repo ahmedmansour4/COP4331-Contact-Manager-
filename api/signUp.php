@@ -3,7 +3,7 @@
     $inData = getRequestInfo();
     
     $userName = $inData["userName"];
-    $password = md5($inData["password"]);
+    $passWord = md5($inData["passWord"]);
     $firstName = $inData["firstName"];
     $lastName = $inData["lastName"];
     $email = $inData["email"];
@@ -25,7 +25,7 @@
         }
         else
         {
-            $sql = "INSERT INTO Users (userName, password, firstName, lastName, email) VALUES ('$userName', '$password', '$firstName', '$lastName', '$email')";
+            $sql = "INSERT INTO Users (userName, passWord, firstName, lastName, email) VALUES ('$userName', '$passWord', '$firstName', '$lastName', '$email')";
             
             if ( $result = $conn->query($sql) != TRUE)
             {
