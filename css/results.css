@@ -11,7 +11,6 @@ body {
 	letter-spacing: 3px;
 }
 
-/* currently not being used!*/
 .footer
 {
 	height: 29vh;
@@ -20,22 +19,39 @@ body {
 .center
 {
 	display: flex;
-	height: 75vh;
-	background-color: red;
+	height: 60vh;
 }
 
 .middle
 {
-	width: 60%;
+	font-family: "Trebuchet MS";
+	text-decoration: none;
+	color: #707070;
 	display: flex;
 	flex-direction: column;
+	width: 60%;
+	background-color: white;
+	/*if overflow, scroll w/in box*/
+	overflow: auto;
+	border-style: solid;
+	border-width: 2px;
 }
 
 .middle > div
 {
 	align-items: flex-start;
 	width: 100%;
+	margin: 2%;
 
+}
+#top
+{
+	background-color: yellow;
+}
+
+#bottom
+{
+	background-color: blue;
 }
 
 #title
@@ -44,6 +60,49 @@ body {
 	text-decoration: none;
 	color: #6D7993;
 }
+
+/*Add Contact Only CSS:*/
+#contact
+{
+	text-align: center;
+}
+
+#innerbox
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	height: 70%;
+	border-style: solid;
+}
+
+.addInfo
+{
+	border-radius: 25px;
+	text-align: center;
+	padding-top: 2%;
+	padding-bottom: 2%;
+}
+
+#addButton
+{
+	font-family: "Trebuchet MS";
+	text-decoration: none;
+	text-align: center;
+	border-radius: 10px;
+	background-color: #6D7993;
+	color: #DDDDDD;
+	margin-top: 2%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	padding-left: 8%;
+	padding-right: 8%;
+}
+
+/*End of Add Contact CSS*/
+
 
 .side
 {
@@ -104,20 +163,6 @@ body {
 	margin-bottom: 2%;
 }
 
-#resultsBox
-{
-	/*Todo: display w/ search result success*/
-	display: none;
-	font-family: "Trebuchet MS";
-	text-decoration: none;
-	color: #707070;
-	background-color: white;
-	/*if overflow, scroll w/in box*/
-	overflow: auto;
-	border-style: solid;
-	border-width: 2px;
-}
-
 #logOut
 {
 	max-height: 30%;
@@ -134,7 +179,7 @@ body {
 	padding-right: 5%;
 }
 
-#searchButton, #addContact
+#searchButton
 {
 	max-width: 30%;
 	font-family: "Trebuchet MS";
@@ -144,7 +189,6 @@ body {
 	background-color: #6D7993;
 	color: #DDDDDD;
 	margin-left: 2%;
-	margin-bottom: 2%;
 	padding-top: 2%;
 	padding-bottom: 2%;
 	padding-left: 5%;

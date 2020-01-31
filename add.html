@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Add Contact</title>
+		<link rel="stylesheet" type="text/css" href="css/results.css">
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column">
+				<div id="userInfo">
+					<h3 id="welcomeText">Currently logged in as</h3>
+					<div id="space"></div>
+					<button type="button" id="logOut" class="buttons" onclick="doLogOut();"> LOG OUT </button>
+				</div>
+			</div>
+		</div>
+		<div class="center">
+			<div class="centerColumn side"></div>
+			<div class="centerColumn middle">
+				<div>
+					<h1 id="contact">ADD NEW CONTACT</h1>
+				</div>
+				<div id="innerbox">
+					<input type="text" class="addInfo" placeholder="First Name" /><br />
+					<input type="text" class="addInfo" placeholder="Last Name" /><br />
+					<input type="text" class="addInfo" placeholder="Phone Number"/><br />
+					<input type="text" class="addInfo" placeholder="Address"/><br />
+					<button type="button" id="addButton" class="buttons" onclick="addContact();"> ADD CONTACT </button>
+					<span id="addResult"></span>
+				</div>
+				<div></div>
+
+			</div>
+			<div class="centerColumn side"></div>
+		</div>
+	</body>
+</html>
