@@ -50,7 +50,7 @@
     
     function returnWithInfo($firstName, $lastName)
     {
-        $retValue = '{"Mess":' . "Success!" . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+        $retValue = '{"Mess":"' . "Success!" . '","firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
         sendResultInfoAsJson($retValue);
     }
     
