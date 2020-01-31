@@ -17,7 +17,7 @@ function doSignUp()
 	var firstName = document.getElementById("firstName").value;
 	var lastName = document.getElementById("lastName").value;
 	console.log(email + " " + userName + " " + passWord + " " + firstName + " " + lastName);
-	var jsonPayload = '{"email" : "' + email + '", "userName:" : " ' + userName + '" , "passWord" : "' + passWord + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '"}';
+	var jsonPayload = '{ "email" : "' + email + '", "userName" : "' + userName + '" , "passWord" : "' + passWord + '" , "firstName" : "' + firstName + '" , "lastName" : "' + lastName + '" }';
 
 	var url = urlBase + '/api/signUp.' + extension;
 	var xhr = new XMLHttpRequest();
@@ -28,11 +28,21 @@ function doSignUp()
 		xhr.send(jsonPayload);
 
 		var jsonObject = JSON.parse(xhr.responseText);
-		console.log(JSON.stringify(jsonObjext));
+		console.log(jsonObject.Mess);
+		var message = jsonObject.Mess;
+
+        	if( message != "Success!")
+        	{
+        	    document.getElementById("signupResult").innerHTML = message;
+        	    return;
+        	}
+	        saveCookie();
+
+        	window.location.href = "index.html";
 	}
 	catch(err)
 	{
-		return
+		return document.getElementById("signupResult").innerHTML = err;
 	}
 }
 function doLogin()

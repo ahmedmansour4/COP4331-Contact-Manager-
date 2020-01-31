@@ -3,7 +3,7 @@
     $inData = getRequestInfo();
     
     $userName = $inData["userName"];
-    $passWord = $inData["passWord"];
+    $passWord = md5($inData["passWord"]);
     
     $UID = 0;
     $firstName = "";
