@@ -3,12 +3,12 @@
     $inData = getRequestInfo();
     
     $userName = $inData["userName"];
-    $password = md5($inData["password"]);
+    $passWord = md5($inData["passWord"]);
     $firstName = $inData["firstName"];
     $lastName = $inData["lastName"];
     $email = $inData["email"];
     
-    $conn = new mysqli("127.0.0.1", "root", "", "Users");
+    $conn = new mysqli("127.0.0.1", "root", "", "ManagerDB");
     
     if ( $conn->connect_error )
     {
@@ -19,13 +19,13 @@
         $checkStatus = "SELECT userName FROM Users WHERE userName='".$userName."'";
         $alreadyTaken = $conn->query($checkStatus);
         
-        if ($alreadyTaken->num_rows > 0)
+        if ($alreadyTaken->num_rows >= 0)
         {
             returnWithError( "That userName is not available" );
         }
         else
         {
-            $sql = "INSERT INTO Users (userName, password, firstName, lastName, email) VALUES ('$userName', '$password', '$firstName', '$lastName', '$email')";
+            $sql = "INSERT INTO Users (userName, passWord, firstName, lastName, email) VALUES ('$userName', '$passWord', '$firstName', '$lastName', '$email')";
             
             if ( $result = $conn->query($sql) != TRUE)
             {

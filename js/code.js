@@ -11,12 +11,29 @@ var lastName = "";
 
 function doSignUp()
 {
-	var  email = document.getElementById("email").innerHTMl;
-	var  userName = document.getElementById("userName").innerHTMl;
-	var  passWord = document.getElementById("passWord").innerHTMl;
-	var  firstName = document.getElementById("firstName").innerHTMl;
-	var  lastName = document.getElementById("lastName").innerHTMl;
+	var email = document.getElementById("email").value;
+	var userName = document.getElementById("userName").value;
+	var passWord = document.getElementById("passWord").value;
+	var firstName = document.getElementById("firstName").value;
+	var lastName = document.getElementById("lastName").value;
 	console.log(email + " " + userName + " " + passWord + " " + firstName + " " + lastName);
+	var jsonPayload = '{"email" : "' + email + '", "userName:" : " ' + userName + '" , "passWord" : "' + passWord + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '"}';
+
+	var url = urlBase + '/api/signUp.' + extension;
+	var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, false);
+        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.send(jsonPayload);
+
+		var jsonObject = JSON.parse(xhr.responseText);
+		console.log(JSON.stringify(jsonObjext));
+	}
+	catch(err)
+	{
+		return
+	}
 }
 function doLogin()
 {
