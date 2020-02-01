@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Results</title>
+		<title>Edit Contact</title>
 		<link rel="stylesheet" type="text/css" href="css/results.css">
 	</head>
 
@@ -21,22 +21,20 @@
 			<div class="centerColumn side"></div>
 			<div class="centerColumn middle">
 				<div>
-					<h1 id="textResults">SEARCH RESULTS</h1>
+					<h1 id="contact">EDIT CONTACT INFO</h1>
 				</div>
-				<div id="box">
-					<div id="placeText">
-						<h3>First Name: </h3><div id="firstNameResult"></div>
-						<h3>Last Name: </h3><div id="lastNameResult"></div>
-						<h3>Phone: </h3><div id="phoneResult"></div>
-						<h3>Email: </h3><div id="emailResult"></div>
-						<span id="oneRow">
-							<button type="button" id="editButton" class="buttons" onclick="edit();">EDIT</button>
-							<button type="button" id="deleteButton" class="buttons" onclick="delete();">DELETE</button>
-						</span>
-					</div>
-					<p id="resultsList"></p>
+				<div id="innerbox">
+					<div></div>
+					<input type="text" class="editInfo" placeholder="First Name" /><br />
+					<input type="text" class="editInfo" placeholder="Last Name" /><br />
+					<input type="text" class="editInfo" placeholder="Phone Number"/><br />
+					<input type="text" class="editInfo" placeholder="Email"/><br />
+					<input type="text" class="editInfo" id="notes" placeholder="Notes"/><br />
+					<button type="button" id="editButton" class="buttons" onclick="editContact();"> CONFIRM </button>
+					<span id="editResult"></span>
+					<div></div>
 				</div>
-
+				<div></div>
 			</div>
 			<div class="centerColumn side"></div>
 		</div>

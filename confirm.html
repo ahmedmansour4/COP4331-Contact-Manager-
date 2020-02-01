@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Confirm</title>
+		<link rel="stylesheet" type="text/css" href="css/results.css">
+	</head>
+
+	<body>
+		<div class="header">
+			<div class="column"></div>
+			<div class="column"></div>
+			<div class="column">
+				<div id="userInfo">
+					<h3 id="welcomeText">Currently logged in as</h3>
+					<div id="space"></div>
+					<button type="button" id="logOut" class="buttons" onclick="doLogOut();"> LOG OUT </button>
+				</div>
+			</div>
+		</div>
+		<div class="centerMedium">
+			<div class="centerColumn sideMedium"></div>
+				<div class="centerColumn middleMedium">
+					<div class="margins" id="innerbox">
+						<div id="placeText">
+							<h3>First Name: </h3><div id="firstNameResult"></div>
+							<h3>Last Name: </h3><div id="lastNameResult"></div>
+							<h3>Phone: </h3><div id="phoneResult"></div>
+							<h3>Email: </h3><div id="emailResult"></div>
+						</div>
+					</div>
+					<div class="margins" id="innerbox">
+						<h2 id="confirmText">Are you sure you want to delete this contact?</h2>
+						<span id="oneRow">
+							<button type="button" id="confirmButton" class="buttons" onclick="deleteContact();"> CONFIRM </button>
+							<button type="button" id="cancelButton" class="buttons" onclick=""> CANCEL </button>
+						</span>
+					</div>
+				</div>
+			<div class="centerColumn sideMedium"></div>
+		</div>
+	</body>
+</html>
