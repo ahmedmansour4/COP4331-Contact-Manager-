@@ -40,6 +40,8 @@
             
             returnWithInfo($firstName, $lastName);
         }
+        
+        // Lastly close the connection to the database
         $conn->close();
     }
     
