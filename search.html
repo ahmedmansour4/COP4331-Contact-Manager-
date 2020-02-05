@@ -7,9 +7,8 @@
 
 	<body>
 		<div class="header">
-			<div class="column"></div>
-			<div class="column"></div>
-			<div class="column">
+			<div id="logoBox"></div>
+			<div class="columnHeader">
 				<div id="userInfo">
 					<h3 id="welcomeText">Currently logged in as</h3>
 					<div id="space"></div>
@@ -17,40 +16,71 @@
 				</div>
 			</div>
 		</div>
-		<div class="center">
-			<div class="centerColumn side"></div>
-			<div class="centerColumn middle">
-				<div>	<h1 id="title">WELCOME</h1></div>
-				<div>
-					<input type="text" id="searchBox">
-					<button type="button" id="searchButton" class="buttons" onclick="doSearch();"> SEARCH </button>
-				</div>
-				<div>
-					<button type="button" id="addContact" class="buttons" onclick="addContact();">ADD NEW CONTACT</button>
-				</div>
-				<div id="resultsBox">
-				<!--	<span id="resultsBox">-->
-					<p id="resultsList"></p>
-					<!--</span>-->
-				</div>
-									<!--
-				<div class="gridcontainer">
-					<div class="row1">
-							<h1 id="title">WELCOME</h1>
-					</div>
-					<div class="row2">
-						<input type="text"/ id="searchBox">
-						<button type="button" id="searchButton" class="buttons" onclick="doSearch();"> SEARCH </button>
-					</div>
-					<button type="button" id="addContact" class="buttons" onclick="addContact();">ADD NEW CONTACT</button>
-
-				</div>
-			-->
+		<div class="column">
+			<div id="searchBar">
+				<input type="text" id="searchBox">
+				<button type="button" id="searchButton" class="buttons" onclick="doSearch();"> SEARCH </button>
 			</div>
-			<div class="centerColumn side"></div>
+			<div class="resultsColumn">
+				<table id="contactsList">
+					<!--TODO: onclick="getInfo", click on row and have info pop up to the side-->
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<!--TODO: Remove extra rows below-->
+					<tr onclick="getInfo">
+						<td id="firstName">Abbey</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+					<tr onclick="getInfo">
+						<td id="firstName">Jon</td>
+						<td id="lastName">Snow</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-		<!--
-		<footer class="footer"></footer>
-	-->
+		<div class="bodyColumn">
+			<div class="containInfo">
+				<!--TODO: remove fake info, i.e. Andy Anderson, ...-->
+				<div><span id="headText">First Name: </span><span id="firstNameResult">Andy</span></div>
+				<div><span id="headText">Last Name: </span><span id="lastNameResult">Anderson</span></div>
+				<div><span id="headText">Phone: </span><span id="phoneResult">111-111-1111</span></div>
+				<div><span id="headText">Email: </span><span id="emailResult">andand@email.com</span></div>
+				<span class="noteBox"><span id="notesResult">Some text here</span></span>
+				<span id="oneRow">
+					<button type="button" id="editButton" class="buttons" onclick="edit();">EDIT</button>
+					<button type="button" id="deleteButton" class="buttons" onclick="delete();">DELETE</button>
+				</span>
+			</div>
+		</div>
 	</body>
 </html>
