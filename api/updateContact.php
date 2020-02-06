@@ -8,7 +8,7 @@
     $infoToBeUpdated = $inData["update"];
     $updatedInfo = $inData["updatedInfo"];
     
-    $conn = new mysqli("sql9.freemysqlhosting.net", "sql9319845", "l64JHb7YZj", "sql9319845", "3306");
+    $conn = new mysqli("127.0.0.1", "root", "", "ManagerDB");
     
     if ($conn->connect_error)
     {
@@ -49,7 +49,7 @@
     
     function returnWithError($err)
     {
-        $retValue = '{"error":"' . $err . '"}';
+        $retValue = '{"Mess":"' . $err . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>

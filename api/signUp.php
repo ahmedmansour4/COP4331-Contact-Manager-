@@ -19,13 +19,13 @@
         $checkStatus = "SELECT userName FROM Users WHERE userName='".$userName."'";
         $alreadyTaken = $conn->query($checkStatus);
         
-        if ($alreadyTaken->num_rows >= 0)
+        if ($alreadyTaken->num_rows > 0)
         {
             returnWithError( "That userName is not available" );
         }
         else
         {
-            $sql = "INSERT INTO Users (userName, passWord, firstName, lastName, email) VALUES ('$userName', '$passWord', '$firstName', '$lastName', '$email')";
+            $sql = "INSERT INTO Users (email, userName, passWord, firstName, lastName) VALUES ('$email', '$userName', '$passWord', '$firstName', '$lastName')";
             
             if ( $result = $conn->query($sql) != TRUE)
             {
@@ -50,13 +50,13 @@
     
     function returnWithInfo($firstName, $lastName)
     {
-        $retValue = '{"Mess":' . "Success!" . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+        $retValue = '{"Mess":"' . "Success!" . '" ,"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
         sendResultInfoAsJson($retValue);
     }
     
     function returnWithError( $err )
     {
-        $retValue = '{"error":"' . $err . '"}';
+        $retValue = '{"Mess":"' . $err . '"}';
         sendResultInfoAsJson( $retValue );
     }
 ?>

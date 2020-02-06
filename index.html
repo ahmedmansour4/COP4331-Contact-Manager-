@@ -38,6 +38,16 @@
 					<input type="text" id="loginName" placeholder="Username" /><br />
 					<input type="password" id="loginPassword" placeholder="Password"/><br />
 					<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Log In </button>
+					<script type="text/javascript">
+						document.addEventListener("keyup", function(event) 
+						{
+  							if (event.keyCode === 13) 
+							{
+   								document.getElementById("loginButton").click();
+  							}
+							
+						});
+					</script>
 					<br>
 					<span id="loginResult"></span>
 				</div>
