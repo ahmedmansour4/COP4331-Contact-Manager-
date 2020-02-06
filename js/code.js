@@ -1,4 +1,4 @@
-var subdomain= "alex";
+var subdomain = "alex";
 
 var urlBase = 'http://' + subdomain + '.aaaaaie.us';
 var extension = 'php';
@@ -9,8 +9,7 @@ var lastName = "";
 
 
 
-function doSignUp()
-{
+function doSignUp() {
 	var email = document.getElementById("email").value;
 	var userName = document.getElementById("userName").value;
 	var passWord = document.getElementById("passWord").value;
@@ -21,39 +20,35 @@ function doSignUp()
 
 	var url = urlBase + '/api/signUp.' + extension;
 	var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, false);
-        xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
+	xhr.open("POST", url, false);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try {
 		xhr.send(jsonPayload);
 
 		var jsonObject = JSON.parse(xhr.responseText);
 		console.log(jsonObject.Mess);
 		var message = jsonObject.Mess;
 
-        	if( message != "Success!")
-        	{
-        	    document.getElementById("signupResult").innerHTML = message;
-        	    return;
-        	}
-	        saveCookie();
+		if (message != "Success!") {
+			document.getElementById("signupResult").innerHTML = message;
+			return;
+		}
+		saveCookie();
 
-        	window.location.href = "index.html";
+		window.location.href = "index.html";
 	}
-	catch(err)
-	{
+	catch (err) {
 		return document.getElementById("signupResult").innerHTML = err;
 	}
 }
-function doLogin()
-{
+function doLogin() {
 	userId = 0;
 	firstName = "";
 	lastName = "";
-	
+
 	var login = document.getElementById("loginName").value;
 	var password = document.getElementById("loginPassword").value;
-	
+
 	document.getElementById("loginResult").innerHTML = "";
 
 	var jsonPayload = '{"userName" : "' + login + '", "passWord" : "' + password + '"}';
@@ -65,78 +60,66 @@ function doLogin()
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, false);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
+	try {
 		xhr.send(jsonPayload);
-		
-		var jsonObject = JSON.parse( xhr.responseText );
-		
+
+		var jsonObject = JSON.parse(xhr.responseText);
+
 		userId = jsonObject.UID;
 		console.log(userId);
-		if( userId < 1 )
-		{
+		if (userId < 1) {
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 			return;
 		}
-		
+
 		firstName = jsonObject.firstName;
 		lastName = jsonObject.lastName;
 
 		saveCookie();
 
-		console.log("search.html?firstName=" + firstName +"&lastName=" + lastName);
-		window.location.href= "search.html?firstName=" +firstName + "&lastName=" + lastName;
+		console.log("search.html?firstName=" + firstName + "&lastName=" + lastName);
+		window.location.href = "search.html?firstName=" + firstName + "&lastName=" + lastName;
 	}
-	catch(err)
-	{
+	catch (err) {
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
 }
 
-function saveCookie()
-{
+function saveCookie() {
 	var minutes = 20;
 	var date = new Date();
-	date.setTime(date.getTime()+(minutes*60*1000));	
+	date.setTime(date.getTime() + (minutes * 60 * 1000));
 	document.cookie = "firstName=" + firstName + ",lastName=" + lastName + ",userId=" + userId + ";expires=" + date.toGMTString();
 }
 
-function readCookie()
-{
+function readCookie() {
 	userId = -1;
 	var data = document.cookie;
 	var splits = data.split(",");
-	for(var i = 0; i < splits.length; i++) 
-	{
+	for (var i = 0; i < splits.length; i++) {
 		var thisOne = splits[i].trim();
 		var tokens = thisOne.split("=");
-		if( tokens[0] == "firstName" )
-		{
+		if (tokens[0] == "firstName") {
 			firstName = tokens[1];
 		}
-		else if( tokens[0] == "lastName" )
-		{
+		else if (tokens[0] == "lastName") {
 			lastName = tokens[1];
 		}
-		else if( tokens[0] == "userId" )
-		{
-			userId = parseInt( tokens[1].trim() );
+		else if (tokens[0] == "userId") {
+			userId = parseInt(tokens[1].trim());
 		}
 	}
-	
-	if( userId < 0 )
-	{
+
+	if (userId < 0) {
 		window.location.href = "index.html";
 	}
-	else
-	{
+	else {
 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
 	}
 }
 
-function doLogout()
-{
+function doLogout() {
 	userId = 0;
 	firstName = "";
 	lastName = "";
@@ -144,74 +127,70 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function addColor()
-{
-	var newColor = document.getElementById("colorText").value;
-	document.getElementById("colorAddResult").innerHTML = "";
-	
-	var jsonPayload = '{"color" : "' + newColor + '", "userId" : ' + userId + '}';
-	var url = urlBase + '/AddColor.' + extension;
-	
+function addContact() {
+	var firstName = document.getElementById("firstName").value;
+	var lastName = document.getElementById("lastName").value;
+	var email = document.getElementById("email").value;
+	var phoneNumber = document.getElementById("phoneNumber").value;
+	var notes = document.getElementById("notes").value;
+
+	document.getElementById("contactAddResult").innerHTML = "";
+
+	var jsonPayload = '{"UID" : "' + userID + '", "firstName" : ' + firstName +
+		'", "lastName" : ' + lastName + '", "email" : ' + email +
+		'", "phoneNumber" : ' + phoneNumber + '", "notes" : ' + notes + '}';
+
+	var url = urlBase + '/AddContact.' + extension;
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
-	catch(err)
-	{
-		document.getElementById("colorAddResult").innerHTML = err.message;
+	catch (err) {
+		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
-	
+
 }
 
-function searchColor()
-{
-	var srch = document.getElementById("searchText").value;
+function doSearch() {
+	var srch = document.getElementById("searchBox").value;
 	document.getElementById("colorSearchResult").innerHTML = "";
-	
+
 	var colorList = "";
-	
-	var jsonPayload = '{"search" : "' + srch + '","userId" : ' + userId + '}';
-	var url = urlBase + '/SearchColors.' + extension;
-	
+
+	var jsonPayload = '{"UID" : "' + userID + '","search" : ' + srch + '}';
+	var url = urlBase + '/SearchContact.' + extension;
+
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function() 
-		{
-			if (this.readyState == 4 && this.status == 200) 
-			{
-				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
-				var jsonObject = JSON.parse( xhr.responseText );
-				
-				for( var i=0; i<jsonObject.results.length; i++ )
-				{
-					colorList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						colorList += "<br />\r\n";
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
+				var jsonObject = JSON.parse(xhr.responseText);
+
+				for (var i = 0; i < jsonObject.results.length; i++) {
+					contactList += jsonObject.results[i];
+					if (i < jsonObject.results.length - 1) {
+						contactList += "<br />\r\n";
 					}
 				}
-				
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
+
+				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
 		};
 		xhr.send(jsonPayload);
 	}
-	catch(err)
-	{
-		document.getElementById("colorSearchResult").innerHTML = err.message;
+	catch (err) {
+		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
-	
+
 }
