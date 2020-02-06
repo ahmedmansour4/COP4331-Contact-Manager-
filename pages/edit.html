@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Edit Contact</title>
+	<link rel="stylesheet" type="text/css" href="../css/results.css">
+</head>
+
+<body>
+	<div class="header">
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column">
+			<div id="userInfo">
+				<h3 id="welcomeText">Currently logged in as</h3>
+				<div id="space"></div>
+				<button type="button" id="logOut" class="buttons" onclick="doLogOut();"> LOG OUT </button>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+		<div class="centerColumn side"></div>
+		<div class="centerColumn middle">
+			<div>
+				<h1 id="contact">EDIT CONTACT INFO</h1>
+			</div>
+			<div id="innerbox">
+				<div></div>
+				<input type="text" class="editInfo" placeholder="First Name" /><br />
+				<input type="text" class="editInfo" placeholder="Last Name" /><br />
+				<input type="text" class="editInfo" placeholder="Phone Number" /><br />
+				<input type="text" class="editInfo" placeholder="Email" /><br />
+				<input type="text" class="editInfo" id="notes" placeholder="Notes" /><br />
+				<button type="button" id="editButton" class="buttons" onclick="editContact();"> CONFIRM </button>
+				<span id="editResult"></span>
+				<div></div>
+			</div>
+			<div></div>
+		</div>
+		<div class="centerColumn side"></div>
+	</div>
+</body>
+
+</html>

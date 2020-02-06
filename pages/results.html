@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Results</title>
+	<link rel="stylesheet" type="text/css" href="../css/results.css">
+</head>
+
+<body>
+	<div class="header">
+		<div class="column"></div>
+		<div class="column"></div>
+		<div class="column">
+			<div id="userInfo">
+				<h3 id="welcomeText">Currently logged in as</h3>
+				<div id="space"></div>
+				<button type="button" id="logOut" class="buttons" onclick="doLogOut();"> LOG OUT </button>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+		<div class="centerColumn side"></div>
+		<div class="centerColumn middle">
+			<div>
+				<h1 id="textResults">SEARCH RESULTS</h1>
+			</div>
+			<div id="box">
+				<div id="placeText">
+					<h3>First Name: </h3>
+					<div id="firstNameResult"></div>
+					<h3>Last Name: </h3>
+					<div id="lastNameResult"></div>
+					<h3>Phone: </h3>
+					<div id="phoneResult"></div>
+					<h3>Email: </h3>
+					<div id="emailResult"></div>
+					<span id="oneRow">
+						<button type="button" id="editButton" class="buttons" onclick="edit();">EDIT</button>
+						<button type="button" id="deleteButton" class="buttons" onclick="delete();">DELETE</button>
+					</span>
+				</div>
+				<p id="resultsList"></p>
+			</div>
+
+		</div>
+		<div class="centerColumn side"></div>
+	</div>
+</body>
+
+</html>

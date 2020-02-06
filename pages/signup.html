@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="../css/signupstyle.css">
+	<script type="text/javascript" src="js/code.js"></script>
+</head>
+
+<body>
+	<header class="header"></header>
+	<div class="columnSignIn"></div>
+	<div class="columnSignInMid" id="signupPage">
+		<div id="topSignUp">
+			<div id="topInnerSignUp"></div>
+			<h1>CREATE NEW ACCOUNT</h1>
+		</div>
+		<div id="innerSignInB"></div>
+		<div id="innerSignInA">
+			<div id="topInnerSignUp"></div>
+			<div id="center">
+				<script type="text/javascript" src="js/code.js"></script>
+				<input type="text" id="email" class="signUpInfo" placeholder="Email" value=""><br>
+				<input id="userName" type="text" class="signUpInfo" placeholder="Username" value=""><br>
+				<input id="passWord" type="password" class="signUpInfo" placeholder="Password" value=""><br>
+				<input id="firstName" type="text" class="signUpInfo" placeholder="First Name" value=""><br>
+				<input id="lastName" type="text" class="signUpInfo" placeholder="Last Name" value=""><br>
+				<!--First Name, Last Name -->
+				<script type="text/javascript" src="js/code.js"></script>
+				<button type="button" id="signUpButton" class="buttons" onclick="doSignUp();"> Sign Up </button><br>
+				<script type="text/javascript">
+					document.addEventListener("keyup", function (event) {
+						if (event.keyCode === 13) {
+							document.getElementById("signUpButton").click();
+						}
+
+					});
+				</script>
+				<span id="signupResult"></span>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+
+</html>
