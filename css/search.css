@@ -353,12 +353,13 @@
 	text-transform: uppercase;
 }
 
-.containInfo
+#containInfo
 {
 	font-family: "Trebuchet MS";
 	font-size: x-large;
 	color: #5F5A5A;
-	display: flex;
+	/*display: flex;*/
+	display: none;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -369,7 +370,7 @@
 	padding: 15px;
 }
 
-.containInfo > div
+#containInfo > div
 {
 	margin: 5px;
 	padding-top: 15px;
