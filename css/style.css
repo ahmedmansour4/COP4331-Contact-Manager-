@@ -1,6 +1,9 @@
 
 body {
+	/*
 	background-color:	#333A56;
+	*/
+	background-color: #22638A;
 }
 
 /*height, vh is % of view height, 30 + 20 + 50 = 100% height taken up*/
@@ -8,7 +11,9 @@ body {
 {
 	height: 20vh;
 	font-family: "Trebuchet MS";
+
 	color: #DDDDDD;
+
 	letter-spacing: 3px;
 }
 
@@ -21,14 +26,20 @@ body {
 .rectangleA
 {
 	margin: 0;
+	background-color: #80A6BE;
+	/*
 	background-color: #52658F;
+	*/
 }
 
 .rectangleB
 {
 	margin: 0;
 	width: 10%;
+	background-color: #80A6BE;
+	/*
 	background-color: #52658F;
+	*/
 }
 
 #placementBottom
@@ -59,9 +70,10 @@ body {
 
 #logTitle
 {
-		font-family: "Trebuchet MS";
-		text-align: center;
-		color: #5F5A5A;
+	font-family: "Trebuchet MS";
+	text-align: center;
+	color: #5F5A5A;
+
 }
 
 #login
@@ -83,13 +95,21 @@ body {
 	padding-bottom: 2%;
 }
 
+#loginButton:hover
+{
+	background-color: #1B5578;
+}
+
 #loginButton
 {
 	font-family: "Trebuchet MS";
 	text-decoration: none;
 	text-align: center;
 	border-radius: 5px;
+	/*
 	background-color: #6D7993;
+	*/
+	background-color: #22638A;
 	color: #DDDDDD;
 	margin-top: 2%;
 	padding-top: 2%;
