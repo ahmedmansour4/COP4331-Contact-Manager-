@@ -55,16 +55,17 @@
 {
 	margin: 2%;
 	float: right;
+	text-align: right;
 	border-radius: 15px;
 	width: 70%;
 	height: 70%;
-	background-color:  #93B5CA;
+	/*background-color:  #93B5CA;*/
 	font-family: "Trebuchet MS";
 	color: #5F5A5A;
 	letter-spacing: 3px;
 	padding: 10px;
 }
-
+/*
 #logOut
 {
 	max-height: 30%;
@@ -80,7 +81,7 @@
 	padding-bottom: 2%;
 	padding-left: 5%;
 	padding-right: 5%;
-}
+}*/
 
 #welcomeText
 {
@@ -141,17 +142,46 @@
 #searchBox
 {
 	border-radius: 30px;
-	width: 70%;
+	width: 83%;
 	padding: 15px;
 	margin: 2%;
 }
 
-#searchButton:hover, #addButton:hover, #editButton:hover, #deleteButton:hover, #logOut:hover
+#addButton:hover, #editButton:hover, #deleteButton:hover, #logOut:hover
 {
 	background-color: #1B5578;
 }
 
-#searchButton, #addContact
+.addInfo, .editInfo
+{
+	width: 80%;
+	border-radius: 25px;
+	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin: 3px;
+}
+
+
+.notes
+{
+	width: 80%;
+	height: 30%;
+	padding-bottom: 50px;
+	border-radius: 10px;
+}
+
+#center
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+
+/*#searchButton,*/ #addContact
 {
 	max-width: 30%;
 	font-family: "Trebuchet MS";
@@ -183,8 +213,8 @@
 	padding-left: 10%;
 	padding-right: 10%;
 }
-
-#editButton, #deleteButton
+/*
+#deleteButton
 {
 	font-family: "Trebuchet MS";
 	font-size: large;
@@ -194,13 +224,108 @@
 	border: none;
 	background-color: #22638A;
 	color: #DDDDDD;
-
 	padding-top: 7%;
 	padding-bottom: 7%;
 	padding-left: 18%;
 	padding-right: 18%;
-
 	margin: 2%;
+}
+*/
+
+#addingFormat:hover
+{
+	background-color: #CCCCCC;
+	color: #000000;
+}
+
+#addingFormat
+{
+	background-color: #22638A;
+	color: #DDDDDD;
+	font-size: large;
+	letter-spacing: 2px;
+	border-style: none;
+}
+
+#editButton, #deleteButton, #logOut
+{
+	font-family: "Trebuchet MS";
+	font-size: large;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 10px;
+	border: none;
+	background-color: #22638A;
+	color: #DDDDDD;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 18px;
+	padding-right: 18px;
+	margin: 2%;
+}
+
+#confirmButton:hover, #cancelButton:hover
+{
+	background-color: #CCCCCC;
+	color: #000000;
+}
+
+#confirmButton, #cancelButton
+{
+	font-family: "Trebuchet MS";
+	font-size: large;
+	text-decoration: none;
+	text-align: center;
+	border-radius: 10px;
+	border: none;
+	background-color: #22638A;
+	color: #DDDDDD;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	padding-left: 18px;
+	padding-right: 18px;
+	margin-top: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+}
+
+#nocolor:hover, #searchButton:hover
+{
+	background-color: #D5D5D5;
+}
+
+#nocolor
+{
+
+	background-color: #F4F4F4;
+	border-color: #F4F4F4;
+	border-style: none;
+}
+
+#iconColor
+{
+	color: #5F5A5A;
+	height: 100%;
+	width: 100%;
+}
+
+
+#searchButton
+{
+	background-color: #FFFFFF;
+}
+
+#confirmText
+{
+	text-align: center;
+	margin: 30px;
+}
+
+#colorit
+{
+	background-color: #22638A;
+	border-radius: 10px;
+	color: #DDDDDD;
 }
 
 #oneRow
@@ -280,17 +405,14 @@
 {
 	width: 100%;
 }
-/*color every other column*/
-tr:nth-child(even) {background-color: #f2f2f2;}
-tr:hover {background-color: #D4D4D4}
 
 td
 {
 	height: 50px;
 	text-align: left;
 	font-size: 35px;
-	padding: 10px;
 }
+
 
 /* width */
 ::-webkit-scrollbar {

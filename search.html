@@ -2,7 +2,17 @@
 <html>
 	<head>
 		<title>Search</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="stylesheet" type="text/css" href="css/search.css">
+		<!--For modals / 'popups'-->
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+		<!--For drop down-->
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 	</head>
 
 	<body>
@@ -22,15 +32,52 @@
 					CONTACTS
 				</div>
 				<div class="containButton">
+					<div class="dropdown">
+					<!--Modal 3 start-->
+					<button class="btn btn-lg" onclick="document.getElementById('id03').style.display='block'" id="nocolor">
+						<span class="glyphicon glyphicon-plus" id="iconColor"></span>
+					</button>
+						  <div id="id03" class="w3-modal">
+						    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+						      <div class="w3-center"><br>
+						        <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-xlarge w3-hover-light-grey w3-display-topright" title="Close Modal">&times;</span>
+						      </div>
+
+						      <form class="w3-container" action="/action_page.php">
+						        <div class="w3-section" id="center">
+												<h1>ADD CONTACT</h1>
+												<input type="text" class="addInfo" placeholder="First Name" /><br />
+												<input type="text" class="addInfo" placeholder="Last Name" /><br />
+												<input type="text" class="addInfo" placeholder="Phone Number"/><br />
+												<input type="text" class="editInfo" placeholder="Email"/><br />
+												<input type="text" class="addInfo notes" placeholder="Notes"/><br />
+												<button type="button" id="confirmButton" class="buttons" onclick="addContact();"> CONFIRM </button>
+												<span id="addResult"></span>
+									  </div>
+						      </form>
+						      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+						        <button onclick="document.getElementById('id03').style.display='none'" type="button" class="w3-button" id="colorit">Cancel</button>
+						      </div>
+								</div>
+							</div>
+							<!--End Modal 3-->
+					</div>
+
+					<!--
 					<button type="button" id="addButton" class="buttons" onclick="add();">ADD NEW CONTACT</button>
+				-->
 				</div>
 			</div>
 			<div id="searchBar">
 				<input type="text" id="searchBox">
-				<button type="button" id="searchButton" class="buttons" onclick="doSearch();"> SEARCH </button>
+				<button class="btn btn-lg" id="searchButton" onclick="doSearch();">
+					<span class="glyphicon glyphicon-search" id="iconColor"></span>
+				</button>
+				<!--<button type="button" id="searchButton" class="buttons" onclick="doSearch();"> SEARCH </button>-->
 			</div>
 			<div class="resultsColumn">
-				<table id="contactsList">
+				<table class="table table-striped table-hover" id="contactsList">
 					<!--TODO: onclick="getInfo", click on row and have info pop up to the side-->
 					<tr onclick="getInfo">
 						<td id="firstName">Jon</td>
@@ -85,8 +132,64 @@
 				<div><span id="headText">Email: </span><span id="emailResult">andand@email.com</span></div>
 				<span class="noteBox"><span id="notesResult">Some text here</span></span>
 				<span id="oneRow">
-					<button type="button" id="editButton" class="buttons" onclick="edit();">EDIT</button>
-					<button type="button" id="deleteButton" class="buttons" onclick="delete();">DELETE</button>
+					<!--<button type="button" id="editButton" class="buttons" onclick="edit();">EDIT</button>-->
+					<!--Modal 1 start-->
+					<button type="button" id="editButton" class="buttons"  onclick="document.getElementById('id01').style.display='block'">EDIT</button>
+
+				  <div id="id01" class="w3-modal">
+				    <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+				      <div class="w3-center"><br>
+				        <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-light-grey w3-display-topright" title="Close Modal">&times;</span>
+				      </div>
+
+				      <form class="w3-container" action="/action_page.php">
+				        <div class="w3-section" id="center">
+
+										<h1>EDIT CONTACT INFO</h1>
+
+										<input type="text" class="editInfo" placeholder="First Name" /><br />
+										<input type="text" class="editInfo" placeholder="Last Name" /><br />
+										<input type="text" class="editInfo" placeholder="Phone Number"/><br />
+										<input type="text" class="editInfo" placeholder="Email"/><br />
+										<input type="text" class="editInfo notes" placeholder="Notes"/><br />
+										<button type="button" id="confirmButton" class="buttons" onclick="editContact();"> CONFIRM </button>
+										<span id="editResult"></span>
+							  </div>
+				      </form>
+				      <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+				        <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button" id="colorit">Cancel</button>
+				      </div>
+						</div>
+					</div>
+					<!--End Modal 1-->
+					<button type="button" id="deleteButton" class="buttons"  onclick="document.getElementById('id02').style.display='block'">DELETE</button>
+					<!--start Modal 2-->
+					<div id="id02" class="w3-modal">
+						<div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+
+							<div class="w3-center"><br>
+								<span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-xlarge w3-hover-light-grey w3-display-topright" title="Close Modal">&times;</span>
+							</div>
+
+							<form class="w3-container" action="/action_page.php">
+								<div class="w3-section" id="center">
+									<h3>First Name: </h3><div id="firstNameResult"></div>
+									<h3>Last Name: </h3><div id="lastNameResult"></div>
+									<h3>Phone: </h3><div id="phoneResult"></div>
+									<h3>Email: </h3><div id="emailResult"></div>
+									<h2 id="confirmText">Are you sure you want to delete this contact?</h2>
+									<span id="oneRow">
+										<button type="button" id="confirmButton" class="buttons" onclick="deleteContact();"> CONFIRM </button>
+									</span>
+								</div>
+							</form>
+							<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+								<button onclick="document.getElementById('id02').style.display='none'" type="button" class="w3-button" id="colorit">Cancel</button>
+							</div>
+						</div>
+					</div>
+					<!--end modal 2-->
 				</span>
 			</div>
 		</div>
