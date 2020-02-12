@@ -3,11 +3,10 @@
     $inData = getRequestInfo();
     
     $UID = $inData["UID"];
-    $search = $inData["search"];
-    
+
     $searchResults = "";
     
-    $conn = new mysqli("127.0.0.1", "root", "", "ManageDB");
+    $conn = new mysqli("127.0.0.1", "root", "", "ManagerDB");
     
     if ($conn->connect_error)
     {
@@ -15,7 +14,7 @@
     }
     else
     {
-        $sql = "SELECT * FROM Contacts WHERE ((CONCAT_WS(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%' OR concat(' ', firstName, lastName, email, phoneNumber) LIKE '%$search%')) AND UID = '$UID'";
+        $sql = "SELECT * FROM Contacts WHERE UID = '$UID'";
         
         $result = $conn->query($sql);
         
