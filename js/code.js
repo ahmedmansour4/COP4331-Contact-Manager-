@@ -1,6 +1,6 @@
 
 
-var subdomain = "alex";
+var subdomain = "ayro";
 
 var urlBase = 'http://' + subdomain + '.aaaaaie.us';
 var extension = 'php';
@@ -99,7 +99,7 @@ function getCID()
 	var phoneNumber = document.getElementById("phoneResult2").innerHTML;
 	phoneNumber = phoneNumber.replace(/-/g,'');
 
-	var jsonPayLoad = '{"UID" : "' + userID + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "phoneNumber" : "' + phoneNumber + '"}';
+	var jsonPayLoad = '{"UID" : "' + userId + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "phoneNumber" : "' + phoneNumber + '"}';
 	var url = urlBase + '/api/getCID.' + extension;
 
 	var xhr = new XMLHttpRequest();
@@ -176,9 +176,7 @@ function addContact() {
 
 	document.getElementById("addResult").innerHTML = "";
 
-	var jsonPayload = '{"UID" : "' + userId + '", "firstName" : "' + firstName +
-		'", "lastName" : "' + lastName + '", "email" : "' + email +
-		'", "phoneNumber" : "' + phoneNumber + '", "notes" : "' + notes + '"}';
+	var jsonPayload = '{"UID" : "' + userId + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "email" : "' + email + '", "phoneNumber" : "' + phoneNumber + '", "notes" : "' + notes + '"}';
 
 	var url = urlBase + '/api/addContact.' + extension;
 
@@ -192,12 +190,11 @@ function addContact() {
 			}
 		};
 		xhr.send(jsonPayload);
-		getContacts();
+		//getContacts();
 	}
 	catch (err) {
 		document.getElementById("addResult").innerHTML = err.message;
 	}
-	getContacts();
 	location.reload();
 }
 
@@ -296,8 +293,7 @@ function deleteContact()
 	var firstName = document.getElementById("firstNameResult2").innerHTML;
 	var lastName = document.getElementById("lastNameResult2").innerHTML;
 
-	var jsonPayload = '{"UID" : "' + userId + '", "firstName" : "' + firstName +
-		'", "lastName" : "' + lastName + '"}';
+	var jsonPayload = '{"UID" : "' + userId + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '"}';
 
 	console.log(jsonPayload);
 
@@ -313,11 +309,12 @@ function deleteContact()
 			}
 		};
 		xhr.send(jsonPayload);
-		getContacts();
+		//getContacts();
 	}
 	catch (err) {
 		console.log(err.message);
 	}
+	getContacts();
 	location.reload();
 }
 
@@ -364,20 +361,19 @@ function addRowHandlers() {
 function editContact()
 {
 	getCID();
-
 	var firstName = document.getElementById("editFirstName").value;
 	var lastName = document.getElementById("editLastName").value;
 	var email = document.getElementById("editEmail").value;
 	var phoneNumber = document.getElementById("editPhoneNumber").value;
 	var notes = document.getElementById("editNotes").value;
 
-	document.getElementById("addResult").innerHTML = "";
+	document.getElementById("editResult").innerHTML = "";
 
-	var jsonPayload = '{"UID" : "' + userId + '", "firstName" : "' + firstName +
-		'", "lastName" : "' + lastName + '", "email" : "' + email +
-		'", "phoneNumber" : "' + phoneNumber + '", "notes" : "' + notes + '"}';
+	var jsonPayload = '{"UID" : "' + userId + '","CID" : "' + CID + '", "firstName" : "' + firstName + '", "lastName" : "' + lastName + '", "email" : "' + email + '", "phoneNumber" : "' + phoneNumber + '", "notes" : "' + notes + '"}';
 
-	var url = urlBase + '/api/addContact.' + extension;
+	console.log(jsonPayload);
+
+	var url = urlBase + '/api/newUpdate.' + extension;
 
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -385,14 +381,14 @@ function editContact()
 	try {
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("addResult").innerHTML = "Contact has been added";
+				document.getElementById("editResult").innerHTML = "Contact has been Updated";
 			}
 		};
 		xhr.send(jsonPayload);
-		getContacts();
+		//getContacts();
 	}
 	catch (err) {
-		document.getElementById("addResult").innerHTML = err.message;
+		document.getElementById("editResult").innerHTML = err.message;
 	}
 	getContacts();
 
