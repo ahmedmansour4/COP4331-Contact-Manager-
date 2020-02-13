@@ -2,8 +2,8 @@
 Contact Manager project created for COP 4331 (Spring 2020)
 
 ### Contributers
-Name  | 
--------------
+      Name    |
+---------------
 Ian Wallace   |
 Ahmed Mansour |
 Alex Flohr    |
